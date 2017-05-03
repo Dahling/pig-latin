@@ -47,7 +47,7 @@ var whereFirstVowel = function(input) {
 var moveLeadingConsonants = function (input) {
   var index = whereFirstVowel(input);
   //add exception for qu to move the u with it if they are at the beginning of the word
-  if (input[index - 1] === "q" && input[index] === "u" || input[0] === 'y') {
+  if (input[index - 1] === "q" && input[index] === "u" || input[0] === "y") {
     index = index + 1;
   }
   var toMove = input.splice(0, index);
@@ -77,13 +77,23 @@ var pigLatin = function(input) {
   return input;
 }
 
+var translate = function(input) {
+  input = input.split(" ");
+  var result = "";
+  for (var index = 0; index < input.length; index = index + 1) {
+    result = result + pigLatin(input[index]) + " ";
+  }
+  return result;
+}
+
+
 // User Interface Logic
 $(document).ready(function() {
   $('form').submit(function(event) {
     event.preventDefault();
 
     var input = $('#input').val();
-    var result = pigLatin(input);
+    var result = translate(input);
 
     $('#result').text(result);
   });
