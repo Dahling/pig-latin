@@ -46,6 +46,10 @@ var whereFirstVowel = function(input) {
 
 var moveLeadingConsonants = function (input) {
   var index = whereFirstVowel(input);
+  //add exception for qu to move the u with it if they are at the beginning of the word
+  if (input[index - 1] === "q" && input[index] === "u") {
+    index = index + 1;
+  }
   var toMove = input.splice(0, index);
   console.log(toMove);
   for (var index = 0; index < toMove.length; index = index + 1) {
