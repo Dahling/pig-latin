@@ -38,6 +38,15 @@ var whereFirstVowel = function(input) {
   return false;
 };
 
+var moveLeadingConsonants = function (input) {
+  var index = whereFirstVowel(input);
+  var toMove = input.splice(0, index);
+  input.push(toMove);
+  input.push('a', 'y');
+  console.log(input);
+  return input;
+};
+
 var pigLatin = function(input) {
   input = cleanText(input);
   input = convertStringToArray(input);
@@ -51,8 +60,10 @@ var pigLatin = function(input) {
     input.push('w', 'a', 'y');
   }
 
+
+
   input = convertArrayToString(input);
-  return whereFirstVowel(input);
+  return moveLeadingConsonants(input);
 }
 
 // User Interface Logic
