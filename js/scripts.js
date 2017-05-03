@@ -20,7 +20,7 @@ var convertArrayToString = function(input) {
 //identify first vowel in a word - takes in array
 var isFirstVowel = function (input) {
   //check and see if the first letter is a vowel
-  if (vowels.includes(input[0])) {
+  if (vowels.includes(input[0]) && input[0] !== 'y') {
     return input[0];
   } else {
     return false;
@@ -47,7 +47,7 @@ var whereFirstVowel = function(input) {
 var moveLeadingConsonants = function (input) {
   var index = whereFirstVowel(input);
   //add exception for qu to move the u with it if they are at the beginning of the word
-  if (input[index - 1] === "q" && input[index] === "u") {
+  if (input[index - 1] === "q" && input[index] === "u" || input[0] === 'y') {
     index = index + 1;
   }
   var toMove = input.splice(0, index);
