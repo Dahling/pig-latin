@@ -29,10 +29,16 @@ var isFirstVowel = function (input) {
 
 var whereFirstVowel = function(input) {
   //loop over vowels aray for comparison
-  for (var index = 0; index < vowels.length; index = index + 1) {
+  // for (var index = 0; index < vowels.length; index = index + 1) {
     //if input array includes the vowel at current iteration, return the index of that vowel
-    if (input.includes(vowels[index])) {
-      return input.indexOf(vowels[index]);
+  //   if (input.includes(vowels[index])) {
+  //     return input.indexOf(vowels[index]);
+  //   }
+  // }
+
+  for (var index = 0; index < input.length; index = index + 1) {
+    if (vowels.indexOf(input[index]) !== -1) {
+      return index;
     }
   }
   return false;
@@ -41,9 +47,11 @@ var whereFirstVowel = function(input) {
 var moveLeadingConsonants = function (input) {
   var index = whereFirstVowel(input);
   var toMove = input.splice(0, index);
-  input.push(toMove);
+  console.log(toMove);
+  for (var index = 0; index < toMove.length; index = index + 1) {
+    input.push(toMove[index]);
+  }
   input.push('a', 'y');
-  console.log(input);
   return input;
 };
 
@@ -54,16 +62,15 @@ var pigLatin = function(input) {
   if (isFirstVowel(input) && input.length === 1) {
     //add ay to the end of the word
     input.push('a', 'y');
-  }
-  if (isFirstVowel(input) && input.length >= 2) {
+  } else if (isFirstVowel(input) && input.length >= 2) {
     //add way to the end of the word
     input.push('w', 'a', 'y');
+  } else if (isFirstVowel(input) === false) {
+    input = moveLeadingConsonants(input);
   }
 
-
-
   input = convertArrayToString(input);
-  return moveLeadingConsonants(input);
+  return input;
 }
 
 // User Interface Logic

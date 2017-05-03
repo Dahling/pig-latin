@@ -18,6 +18,10 @@ The program adds way to the end of multi-letter words beginning with a vowel.
 Example Input: orange
 Example Output: orangeway
 
+the program will be able to locate the position of the first vowel in an array
+example input: treacherous
+example output: 2
+
 The program will move leading consonants from a word to the end of the word and then append 'ay'
 Example Input: treachorous
 Example Output: eachoroustray
