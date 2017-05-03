@@ -95,6 +95,6 @@ $(document).ready(function() {
     var input = $('#input').val();
     var result = translate(input);
 
-    $('#result').text(result);
+    $('#output').text(result);
   });
 });
