@@ -1,5 +1,6 @@
 //Business Logic
 //identify the vowels
+var vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
 
 //Removes punctuation and numbers from a string, then converts it to lower case
 var cleanText = function(input) {
@@ -26,12 +27,13 @@ var isFirstVowel = function (input) {
   }
 };
 
-var vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
 var whereFirstVowel = function(input) {
+  //loop over vowels aray for comparison
   for (var index = 0; index < vowels.length; index = index + 1) {
-      if (input.includes(vowels[index])) {
-        return input.indexOf(vowels[index]);
-      }
+    //if input array includes the vowel at current iteration, return the index of that vowel
+    if (input.includes(vowels[index])) {
+      return input.indexOf(vowels[index]);
+    }
   }
   return false;
 };
