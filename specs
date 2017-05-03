@@ -10,10 +10,6 @@ The program will identify the first vowel in a word.
 Example Input: orange
 Example Output: o
 
-The program will move the 'u,' if it follows a 'q,' to the end of the word, with the 'q.'
-Example Input: quilt
-Example Output: iltquay
-
 The program adds "ay" to single-letter words beginning with a vowel.
 Example Input: i
 Example Output: iay
@@ -25,6 +21,10 @@ Example Output: orangeway
 The program will move leading consonants from a word to the end of the word and then append 'ay'
 Example Input: treachorous
 Example Output: eachoroustray
+
+The program will move the 'u,' if it follows a 'q,' to the end of the word, with the 'q.'
+Example Input: quilt
+Example Output: iltquay
 
 The program will treat 'y' as a consonant, if the word begins with a 'y.'
 Example Input: yes
